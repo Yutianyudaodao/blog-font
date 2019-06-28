@@ -31,7 +31,13 @@ export default {
         }
       }).then(res=>{
         // this.listData=res.data.data
-        console.log(22,res)
+        const { errno } = res.data;
+        if(errno === 0){
+          this.$router.push('/blog/list')
+        }else if(errno === -1){
+          alert('登陆失败')
+        }
+        
       })
     }
   }
